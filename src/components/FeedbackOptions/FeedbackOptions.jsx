@@ -5,10 +5,14 @@ export const FeedbackOptions = ({
 }) => {
   return (
     <div>
-      <button type="button" onClick={onClickGood}>
+      <button type="button" style={{ marginRight: 10 }} onClick={onClickGood}>
         Good
       </button>
-      <button type="button" onClick={onClickNeutral}>
+      <button
+        type="button"
+        style={{ marginRight: 10 }}
+        onClick={onClickNeutral}
+      >
         Neutral
       </button>
       <button type="button" onClick={onClickBad}>
