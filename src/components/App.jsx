@@ -11,15 +11,10 @@ export class App extends Component {
     bad: 0,
   };
 
-  handleClickGood = () => {
-    this.setState(prevState => ({ good: (prevState.good += 1) }));
+  handleClick = option => {
+    this.setState(prevState => ({ [option]: (prevState[option] += 1) }));
   };
-  handleClickNeutral = () => {
-    this.setState(prevState => ({ neutral: (prevState.neutral += 1) }));
-  };
-  handleClickBad = () => {
-    this.setState(prevState => ({ bad: (prevState.bad += 1) }));
-  };
+
   countTotalFeedback = () => {
     const totalFeedback = this.state.good + this.state.neutral + this.state.bad;
     return totalFeedback;
@@ -45,9 +40,8 @@ export class App extends Component {
       >
         <Section title="Please leave feedback">
           <FeedbackOptions
-            onClickGood={this.handleClickGood}
-            onClickNeutral={this.handleClickNeutral}
-            onClickBad={this.handleClickBad}
+            options={['good', 'neutral', 'bad']}
+            onLeaveFeedback={this.handleClick}
           />
         </Section>
         <Section title="Statistic">

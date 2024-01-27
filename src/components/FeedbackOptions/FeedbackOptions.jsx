@@ -1,29 +1,21 @@
-export const FeedbackOptions = ({
-  onClickGood,
-  onClickNeutral,
-  onClickBad,
-}) => {
+export const FeedbackOptions = ({ options, onLeaveFeedback }) => {
   return (
     <div>
-      <button
-        type="button"
-        name="good"
-        style={{ marginRight: 10 }}
-        onClick={onClickGood}
-      >
-        Good
-      </button>
-      <button
-        type="button"
-        name="neutral"
-        style={{ marginRight: 10 }}
-        onClick={onClickNeutral}
-      >
-        Neutral
-      </button>
-      <button type="button" name="bad" onClick={onClickBad}>
-        Bad
-      </button>
+      {options.map(option => {
+        return (
+          <button
+            type="button"
+            key={option}
+            name={option}
+            style={{ marginRight: 10 }}
+            onClick={() => {
+              onLeaveFeedback(option);
+            }}
+          >
+            {option}
+          </button>
+        );
+      })}
     </div>
   );
 };
